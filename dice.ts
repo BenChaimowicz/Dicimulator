@@ -1,5 +1,5 @@
 class Dice {
-    
+
     AllDice: Die[] = [];
     diceNum: number;
     input: HTMLInputElement = document.querySelector('#numOfDice');
@@ -20,9 +20,9 @@ class Dice {
     }
 
     initDice() {
-        this.diceNum = parseInt(this.input.value); 
+        this.diceNum = parseInt(this.input.value);
         this.AllDice = [];
-        for (let i = 1; i <= this.diceNum; i++){
+        for (let i = 1; i <= this.diceNum; i++) {
             let imgBox: HTMLImageElement = document.querySelector('#img' + i);
             this.AllDice.push(new Die(6, imgBox));
         }
@@ -38,7 +38,7 @@ class Dice {
             rollSum += currRoll;
             rolls.push(currRoll);
         }
-        setTimeout(() => { this.playSound(rollSum, minimal, maximal,rolls) },2000);
+        setTimeout(() => { this.playSound(rollSum, minimal, maximal, rolls) }, 2000);
         console.log(rollSum);
     }
 
@@ -59,12 +59,12 @@ class Dice {
             yay.load();
             yay.play();
         }
-        function allSame(array: number[]):boolean {
+        function allSame(array: number[]): boolean {
             let firstI: number = array[0];
             if (array.length == 1) {
                 return false;
             }
-            for (let i = 0; i < array.length; i++){
+            for (let i = 0; i < array.length; i++) {
                 if (array[i] != firstI)
                     return false;
             }
@@ -88,11 +88,11 @@ class Dice {
 
     hideImages() {
         this.diceNum = parseInt(this.input.value);
-        for (let i = 10; i > 0; i--){
+        for (let i = 10; i > 0; i--) {
             let imgBox: HTMLImageElement = document.querySelector('#img' + i);
             if (i > this.diceNum) {
                 imgBox.style.display = 'none';
-            } else { imgBox.style.display = 'inline-block';}
+            } else { imgBox.style.display = 'inline-block'; }
         }
 
     }
