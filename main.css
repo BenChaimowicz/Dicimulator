@@ -1,0 +1,60 @@
+body{
+    display: flex;
+    margin: 0;
+}
+div{
+    display: flex;
+}
+#pageContainer{
+    background-color: cornsilk;
+    flex-flow: column wrap;
+    border: 1px black solid;
+}
+#lowerContainer{
+    display: flex;
+    justify-content: center;
+}
+#menuContainer{
+    width: 100%;
+    height: 150px;
+
+    background-color: cornsilk;
+    flex-flow: row wrap;
+    border: 1px black solid;
+}
+button{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    width: 100px;
+    height: 60px;
+}
+input {
+    margin: auto;
+    width:80px;
+    height: 15px;
+}
+#inputContainer{
+    height: 50px;
+    margin-top:auto;
+    margin-bottom: auto;
+    margin-left: 40px;
+    flex-flow: column wrap;
+
+    border: 1px black solid;
+}
+img{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+#imgContainer {
+    width: 500px;
+    height: 350px;
+    min-height: 250px;
+    flex-flow: row wrap;
+    background-color: cornflowerblue;
+    border: 1px black solid;
+    margin: auto;
+    margin-top: 50px;
+}

@@ -1,0 +1,14 @@
+"use strict";
+let pageContainer = document.querySelector('#pageContainer');
+pageContainer.style.width = window.innerWidth + 'px';
+pageContainer.style.height = window.innerHeight + 'px';
+let img1 = document.querySelector('#img1');
+let yeah = new Audio('./Sounds/yeah.mp3');
+let shit = new Audio('./Sounds/shit.mp3');
+let diceroll = new Audio('./Sounds/diceroll.mp3');
+let yay = new Audio('./Sounds/yay.mp3');
+let DiceMain = new Dice();
+DiceMain.initImageBoxes();
+DiceMain.initDice();
+DiceMain.bindBtn();
+DiceMain.hideImages();
