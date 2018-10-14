@@ -75,10 +75,13 @@ class Dice {
     }
 
     refresh() {
+        this.btn.disabled = true;
+        this.input.disabled = true;
         this.initDice();
         this.rollAll();
         diceroll.load();
         diceroll.play();
+        setTimeout(() => { this.btn.disabled = false; this.input.disabled = false; }, 2500);
     }
 
     bindBtn() {

@@ -29,7 +29,8 @@ class Die {
         this.drawTgt.src = this.d6imgs[rnd-1];
     }
 
-    public roll() : number {
+    public roll(): number {
+        
         let result: number = this.rollDice();
         let timer: number = setInterval(() => { this.changePics() }, 250);
         let timer2: number;
