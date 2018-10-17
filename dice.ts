@@ -1,10 +1,18 @@
 class Dice {
 
+    private _totalRolls: number = 0;
+    private _sameRolls: number = 0;
+    private _avgRoll: number = 0;
+    private _lastSum: number;
+    private _diceRolls: number = 0;
+    private _sumOfAllRolls: number = 0;
     AllDice: Die[] = [];
+    private _rollHistory: number[][] = [];
     diceNum: number;
     input: HTMLInputElement = document.querySelector('#numOfDice');
     btn: HTMLButtonElement = document.querySelector('#rollBtn');
     imgContainer: HTMLDivElement = document.querySelector('#imgContainer');
+    statsContainer: HTMLDivElement = document.querySelector('#statsContainer');
 
     constructor() {
         this.diceNum = parseInt(this.input.value);
@@ -28,6 +36,12 @@ class Dice {
         }
     }
 
+    private logRoll(dicenum: number, rollsum: number) {
+        this._rollHistory.push([dicenum, rollsum]);
+        this._avgRoll = this.avgRoll();
+        this._lastSum = rollsum;
+    }
+
     rollAll() {
         let rolls: number[] = [];
         let rollSum: number = 0;
@@ -40,6 +54,8 @@ class Dice {
         }
         setTimeout(() => { this.playSound(rollSum, minimal, maximal, rolls) }, 2000);
         console.log(rollSum);
+        this._totalRolls++;
+        this.logRoll(this.diceNum, rollSum);
     }
 
     private playSound(num: number, min: number, max: number, rolls: number[]) {
@@ -55,23 +71,38 @@ class Dice {
             shit.load();
             shit.play();
         }
-        if (allSame(rolls) == true && minmax == false) {
+        if (this.allSame(rolls) == true && minmax == false) {
             yay.load();
             yay.play();
         }
-        function allSame(array: number[]): boolean {
-            let firstI: number = array[0];
-            if (array.length == 1) {
-                return false;
-            }
-            for (let i = 0; i < array.length; i++) {
-                if (array[i] != firstI)
-                    return false;
-            }
-            return true;
-        }
-
         minmax = false;
+
+    }
+
+    allSame(array: number[]): boolean {
+        let firstI: number = array[0];
+        if (array.length == 1) {
+            return false;
+        }
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] != firstI)
+                return false;
+        }
+        this._sameRolls++;
+        return true;
+    }
+
+    private avgRoll(): number {
+        let diceRolls: number = 0;
+        let rollSums: number = 0;
+
+        for (let i = 0; i < this._rollHistory.length; i++) {
+            diceRolls += this._rollHistory[i][0];
+            rollSums += this._rollHistory[i][1];
+        }
+        this._diceRolls = diceRolls;
+        this._sumOfAllRolls = rollSums;
+        return (rollSums / diceRolls);
     }
 
     refresh() {
@@ -79,6 +110,7 @@ class Dice {
         this.input.disabled = true;
         this.initDice();
         this.rollAll();
+        this.postStats();
         diceroll.load();
         diceroll.play();
         setTimeout(() => { this.btn.disabled = false; this.input.disabled = false; }, 2500);
@@ -98,5 +130,15 @@ class Dice {
             } else { imgBox.style.display = 'inline-block'; }
         }
 
+    }
+
+    private postStats() {
+        let str1: string = 'Sum: ' + this._lastSum + '<br>';
+        let str2: string = 'Total times rolled: ' + this._totalRolls + '<br>';
+        let str3: string = 'Total dice rolled: ' + this._diceRolls + '<br>';
+        let str4: string = 'Sum of all rolls: ' + this._sumOfAllRolls + '<br>';
+        let str5: string = 'Total roll average: ' + this._avgRoll.toFixed(2) + '<br>';
+
+        this.statsContainer.innerHTML = str1 + str2 + str3 + str4 + str5;
     }
 }

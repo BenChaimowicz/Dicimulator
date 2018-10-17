@@ -6,7 +6,7 @@ class Die {
         this.faces = faces;
         this.drawTgt = drawTgt;
         for (let i = 1; i <= faces; i++) {
-            this.d6imgs.push(('./images/' + i + '.png'));
+            this.d6imgs.push(('./Images/' + i + '.png'));
         }
     }
     fitPic(num) {

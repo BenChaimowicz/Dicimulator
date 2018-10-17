@@ -13,6 +13,7 @@ div{
 #lowerContainer{
     display: flex;
     justify-content: center;
+    flex-flow: row wrap;
 }
 #menuContainer{
     width: 100%;
@@ -57,4 +58,17 @@ img{
     border: 1px black solid;
     margin: auto;
     margin-top: 50px;
+}
+#statsContainer {
+    display: block;
+    position: fixed;
+    width: 200px;
+    height: 350px;
+    top: 203px;
+    left:400px;
+    margin-left: 80px;
+    background-color:darkgrey;
+    border: 1px black solid;
+    font-size: large;
+    line-height: 2;
 }
