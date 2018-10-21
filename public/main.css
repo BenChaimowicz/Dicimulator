@@ -1,6 +1,11 @@
+html{
+    height: 100%;
+}
 body{
+    height: inherit;
     display: flex;
     margin: 0;
+    overflow: hidden;
 }
 div{
     display: flex;
@@ -13,7 +18,8 @@ div{
 #lowerContainer{
     display: flex;
     justify-content: center;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
+    align-items: flex-end;
 }
 #menuContainer{
     width: 100%;
@@ -53,22 +59,26 @@ img{
     width: 500px;
     height: 350px;
     min-height: 250px;
+    min-width: 150px;
     flex-flow: row wrap;
     background-color: cornflowerblue;
     border: 1px black solid;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 50px;
 }
 #statsContainer {
-    display: block;
-    position: fixed;
+    /* display: block; */
+    /* position: fixed; */
     width: 200px;
     height: 350px;
-    top: 203px;
-    left:400px;
-    margin-left: 80px;
-    background-color:darkgrey;
+    min-height: 250px;
+    min-width: 80px;
+    /* top: 203px; */
+    /* left: 400px; */
+    /* margin-left: 80px; */
+    background-color: darkgrey;
     border: 1px black solid;
     font-size: large;
     line-height: 2;
+    margin-right: 1%;
 }

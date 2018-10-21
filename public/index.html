@@ -17,11 +17,15 @@
             <div id="cfgDiv">
                 <div id="inputContainer">
                     <label for="numOfDice">Number of dice:</label>
-                    <input id="numOfDice" name="numOfDice" type="number" min="1" max="10" value="1" oninput="" onkeydown="return false" />
+                    <input id="numOfDice" name="numOfDice" type="number" min="1" max="10" value="1" oninput=""
+                        onkeydown="return false" />
                 </div>
             </div>
         </div>
         <div id="lowerContainer">
+            <div id="statsContainer">
+
+            </div>
             <div id="imgContainer">
 
             </div>
@@ -31,16 +35,16 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCUVvF_gXttBsg2qipyVhFOW_tdTvvbjWM",
-        authDomain: "dicimulator1.firebaseapp.com",
-        databaseURL: "https://dicimulator1.firebaseio.com",
-        projectId: "dicimulator1",
-        storageBucket: "dicimulator1.appspot.com",
-        messagingSenderId: "6689023509"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCUVvF_gXttBsg2qipyVhFOW_tdTvvbjWM",
+            authDomain: "dicimulator1.firebaseapp.com",
+            databaseURL: "https://dicimulator1.firebaseio.com",
+            projectId: "dicimulator1",
+            storageBucket: "dicimulator1.appspot.com",
+            messagingSenderId: "6689023509"
+        };
+        firebase.initializeApp(config);
     </script>
     <script src="die.js"></script>
     <script src="dice.js"></script>
