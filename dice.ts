@@ -110,7 +110,7 @@ class Dice {
         this.input.disabled = true;
         this.initDice();
         this.rollAll();
-        this.postStats();
+        setTimeout(() => { this.postStats(); }, 2500);
         diceroll.load();
         diceroll.play();
         setTimeout(() => { this.btn.disabled = false; this.input.disabled = false; }, 2500);
@@ -138,6 +138,7 @@ class Dice {
         let str3: string = 'Total dice rolled: ' + this._diceRolls + '<br>';
         let str4: string = 'Sum of all rolls: ' + this._sumOfAllRolls + '<br>';
         let str5: string = 'Total roll average: ' + this._avgRoll.toFixed(2) + '<br>';
+        let str6: string = 'All same value rolls: ' + this._sameRolls + '<br>';
 
         this.statsContainer.innerHTML = str1 + str2 + str3 + str4 + str5;
     }
